@@ -1,0 +1,15 @@
+@(email: String, game: models.Game, bet: models.Bet)(implicit flash: Flash)
+
+@main("Bolão Copa 2018 - Aposta") {
+
+    <h1>Bolão Copa 2018 - @game.teams - @game.datetime </h1>
+
+
+    @helper.form(routes.BetController.tryDeleteBet(game.teams)) {
+        <h2>Tem certeza que desja deletar sua aposta: @bet.bet</h2>
+        <button type="submit">Delete</button>
+    }
+
+  
+    
+}

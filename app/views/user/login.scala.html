@@ -1,0 +1,35 @@
+@(form: Form[(String,String)])(implicit flash: Flash)
+
+@main("Bem vindo ao Bolão da Copa de 2018") {
+
+    <h1>Bolão Copa 2018 - Login</h1>
+
+    <p>Por favor informe suas credenciais.</p>
+
+    @helper.form(routes.Authentication.authenticate) {
+        
+        @form.globalError.map { error =>
+            <p class="error">
+                @error.message
+            </p>
+        } 
+        
+        @flash.get("success").map { message =>
+            <p class="success">
+                @message
+            </p>
+        }
+        
+        <p>
+            <input type="email" name="email" placeholder="Email" id="email" value="@form("email").value">
+        </p>
+        <p>
+            <input type="password" name="password" id="password" placeholder="Senha">
+        </p>
+        <p>
+            <button type="submit" id="loginbutton">Login</button>
+        </p>
+        
+    }
+    
+}

@@ -1,0 +1,32 @@
+@(email: String, game: models.Game, form: Form[betVO])(implicit flash: Flash)
+
+@main("Bolão Copa 2018 - Aposta") {
+
+    <h1>Bolão Copa 2018 - @game.teams</h1>
+
+    <p>Edite sua aposta.</p>
+
+    @helper.form(routes.BetController.tryEditBet(game.teams)) {
+        
+        @form.globalError.map { error =>
+            <p class="error">
+                @error.message
+            </p>
+        } 
+        
+        @flash.get("success").map { message =>
+            <p class="success">
+                @message
+            </p>
+        }
+
+        <p>
+            <input type="text" name="bet" placeholder="Aposta" id="bet" value="@form("bet").value">
+        </p>
+        <p>
+            <button type="submit" id="editBetButton">Editar</button>
+        </p>
+        
+    }
+    
+}

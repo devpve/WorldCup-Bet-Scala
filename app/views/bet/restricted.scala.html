@@ -1,0 +1,27 @@
+@(user: models.User, games: List[Game], bets: List[Bet])
+
+@main("Bolão Copa 2018") {
+
+    <h1>Bolão Copa 2018</h1>
+
+    <p>Bem vindo @user.name !</p>
+
+
+    <h5> Próximos Jogos: </h5>
+	   <ul>
+			@for(game <- games) {
+				<li>@game.teams || (@game.datetime) || @game.place || <a href="@routes.BetController.newBet(game.teams)">Apostar</a></li></li> 
+			}
+	   </ul>
+
+   <h5> Minhas Apostas: </h5>
+   		<ul>
+   			@for(bet <- bets) {
+   				
+   				<li>@games.find(_.id == bet.gameID).get.teams - @bet.bet || <a href="@routes.BetController.editBet(games.find(_.id == bet.gameID).get.teams)">Editar</a> || <a href="@routes.BetController.deleteBet(games.find(_.id == bet.gameID).get.teams)">Deletar</a>
+   			}
+
+   		</ul>
+
+   	<h5> Jogos Passados e Vencedores: </h5>
+}
