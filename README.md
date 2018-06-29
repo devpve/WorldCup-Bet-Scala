@@ -1,7 +1,6 @@
-# Light IMDB
+# Bolão Copa 2018
  
-Uma implementação de um sistema web para 
-avaliar filmes (ou outros trabalhos artísticos). 
+Uma implementação de um sistema web para apostas de bolão.
 
 ### Requisitos
 
@@ -10,10 +9,10 @@ avaliar filmes (ou outros trabalhos artísticos).
 
 ### Executar o projeto
    * clonar esse repositório via o git 
-   * criar o banco de dados imdb no mysql 
-   * definir o esquema do banco de dados (verificar o script em conf/evolutions/1.sql)
-   * executar o sbt (isso no diretório raiz do projeto) 
+   * criar o banco de dados 'bolao' no mysql > create database bolao;
+   * para criar a base de dados: mysql -u <username> -p bolao < bolao.sql
+   * para criar um novo jogo no mysql: insert into game values (0, "Brasil x Japão", "2018-07-07 19:00:00", "Maracanã");
+   * executar o sbt (isso no diretório raiz do projeto)                                                             
    * no shell do sbt, executar "run" 
    * acessar o projeto em http://localhost:9000  
  
-# lightIMDB
