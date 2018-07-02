@@ -99,7 +99,8 @@ object Bet {
    *  Retrieve bet from a specific user.
    */
   def getSpecificBet(userID: Int, gameID: Int) : Bet = {
-    DB.withConnection { implicit connection =>
+    try { 
+      DB.withConnection { implicit connection =>
       SQL(
         """
           select * from users_games where userID = {userID} and gameID = {gameID}
@@ -108,6 +109,10 @@ object Bet {
       ).on(
         'userID -> userID,
         'gameID -> gameID).as(parser.*).head
+      }
+    }
+    catch {
+      case _ => return Bet(0, 0, "") 
     }
   }
 

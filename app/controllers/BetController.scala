@@ -15,7 +15,8 @@ class BetController extends Controller with Secured {
 	*/
 	def newBet (teams: String) = IsAuthenticated { username => implicit request =>
 		var game = Game.findByTeams(teams)
-       	Ok(html.bet.newbet(username, game, betForm))
+		var user = User.findByEmail(username)
+		Ok(html.bet.newbet(username, game, betForm))
 	}
 
 	/**
@@ -23,7 +24,9 @@ class BetController extends Controller with Secured {
 	 */
 	def editBet (teams: String) = IsAuthenticated { username => implicit request =>
 		var game = Game.findByTeams(teams)
-       	Ok(html.bet.editbet(username, game, betForm))
+		var user = User.findByEmail(username)
+		var bet = Bet.getSpecificBet(user.id, game.id)
+       	Ok(html.bet.editbet(username, game, bet, betForm))
 	}
 
 	/**
@@ -49,7 +52,9 @@ class BetController extends Controller with Secured {
 		  	BadRequest(html.bet.newbet(username, game, formWithErrors))
 		  },
 		  bet => {
-		  	Bet.create(new Bet(user.id, game.id, bet.bet))
+		  	var betExists = Bet.getSpecificBet(user.id, game.id)
+		  	if (betExists.bet.equals(""))
+		  		Bet.create(new Bet(user.id, game.id, bet.bet))
 		  	Redirect(routes.Restricted.index())
 		  }
 		)		
@@ -62,10 +67,11 @@ class BetController extends Controller with Secured {
 	def tryEditBet(teams: String) = IsAuthenticated { username => implicit request =>
 		var user = User.findByEmail(username)
 		var game = Game.findByTeams(teams)
+		var bet = Bet.getSpecificBet(user.id, game.id)
 
 		betForm.bindFromRequest.fold(
 		  formWithErrors => {
-		  	BadRequest(html.bet.editbet(username, game, formWithErrors))
+		  	BadRequest(html.bet.editbet(username, game, bet, formWithErrors))
 		  },
 		  bet => {
 			var user = User.findByEmail(username)

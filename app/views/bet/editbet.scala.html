@@ -1,11 +1,11 @@
-@(email: String, game: models.Game, form: Form[betVO])(implicit flash: Flash)
+@(email: String, game: models.Game, bet: models.Bet, form: Form[betVO])(implicit flash: Flash)
 
 @main("Bolão Copa 2018 - Aposta") {
 
     <h1>Bolão Copa 2018 - @game.teams</h1>
 
-    <p>Edite sua aposta.</p>
-
+    <h2>Tem certeza que deseja editar sua aposta: @bet.bet</h2>
+    <br>
     @helper.form(routes.BetController.tryEditBet(game.teams)) {
         
         @form.globalError.map { error =>
@@ -24,9 +24,16 @@
             <input type="text" pattern="^\d{1,2} x \d{1,2}" name="bet" placeholder="00 x 00" id="bet" value="@form("bet").value">
         </p>
         <p>
-            <button type="submit" id="editBetButton">Editar</button>
+            <button type="submit" id="betButton">Editar</button>
         </p>
         
     }
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <button id="returnButton"><a href="@routes.Restricted.index">Retornar</a></button>
+    <button id="logoutButton"><a href="@routes.Authentication.logout">Logout</a></button>
     
 }

@@ -1,10 +1,12 @@
 @(form: Form[(String,String, String)])(implicit flash: Flash)
 
 @main("Bolão Copa 2018 - Cadastro") {
-
+    
     <h1>Bolão Copa 2018 - Cadastro</h1>
 
     <p>Por favor informe suas credenciais</p>
+
+    <br>
 
     @helper.form(routes.SignUp.trySignUp) {
         
@@ -21,7 +23,7 @@
         }
         
         <p>
-            <input type="name" name="name" placeholder="Nome" id="name" value="@form("name").value">
+            <input type="text" name="name" placeholder="Nome" id="name" value="@form("name").value">
         </p>
         <p>
             <input type="email" name="email" placeholder="Email" id="email" value="@form("email").value">
@@ -30,7 +32,7 @@
             <input type="password" name="password" id="password" placeholder="Senha">
         </p>
         <p>
-            <button type="submit" id="signupbutton">Cadastro</button>
+            <button type="submit" id="button">Cadastro</button>
         </p>
         
     }

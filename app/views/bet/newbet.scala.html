@@ -2,10 +2,11 @@
 
 @main("Bolão Copa 2018 - Aposta") {
 
-    <br><h1 align="center">Bolão Copa 2018 - @game.teams</h1><br><br>
-    <div class="container"> 
-        <h4>Faça uma nova aposta!</h4>
+        <h1 align="center">Bolão Copa 2018 - @game.teams</h1>
 
+        <h4>Faça uma nova aposta!</h4>
+        <br>
+        <br>
         @helper.form(routes.BetController.tryNewBet(game.teams)) {
             
         @form.globalError.map { error =>
@@ -25,7 +26,14 @@
             <p>
                 <button type="submit" id="betButton">Cadastro</button>
             </p>
-        </div>
+
     }
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <button id="returnButton"><a href="@routes.Restricted.index">Retornar</a></button>
+    <button id="logoutButton"><a href="@routes.Authentication.logout">Logout</a></button>
     
 }

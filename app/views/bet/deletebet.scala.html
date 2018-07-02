@@ -4,10 +4,17 @@
 
     <h1>Bolão Copa 2018 - @game.teams - @game.datetime </h1>
 
-
     @helper.form(routes.BetController.tryDeleteBet(game.teams)) {
-        <h2>Tem certeza que desja deletar sua aposta: @bet.bet</h2>
-        <button type="submit">Deletar</button>
+        <h2>Tem certeza que deseja deletar sua aposta: @bet.bet</h2>
+        <br>
+        <button type="submit" id="deleteButton">Deletar</button>
     }
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <button id="returnButton"><a href="@routes.Restricted.index">Retornar</a></button>
+    <button id="logoutButton"><a href="@routes.Authentication.logout">Logout</a></button>
     
 }

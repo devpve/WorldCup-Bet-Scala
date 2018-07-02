@@ -5,7 +5,8 @@
     <h1>Bolão Copa 2018 - Login</h1>
 
     <p>Por favor informe suas credenciais.</p>
-
+    <br>
+    <br>
     @helper.form(routes.Authentication.authenticate) {
         
         @form.globalError.map { error =>
@@ -26,8 +27,9 @@
         <p>
             <input type="password" name="password" id="password" placeholder="Senha">
         </p>
+
         <p>
-            <button type="submit" id="loginbutton">Login</button>
+            <button type="submit" id="button">Login</button>
         </p>
         
     }

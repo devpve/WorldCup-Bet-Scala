@@ -4,7 +4,7 @@
 # ~~~~
 
 # An example controller showing a sample home page
-GET     /                           controllers.HomeController.index
+GET     /                           controllers.Restricted.index
 
 # Autenticacao
 GET     /login                      controllers.Authentication.login
@@ -12,7 +12,7 @@ POST    /login                      controllers.Authentication.authenticate
 GET     /logout                     controllers.Authentication.logout
 
 # Area restritra
-GET     /restricted                 controllers.Restricted.index
+GET     /main		                controllers.Restricted.index
 
 # Cadastro
 GET		/signup 					controllers.SignUp.signUp
@@ -30,4 +30,4 @@ POST 	/aposta/delete/:game 		controllers.BetController.tryDeleteBet(game)
 
 
 # Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+GET     /assets/*file               controllers.Assets.at(path="/public/", file)

@@ -30,7 +30,7 @@ class Authentication extends Controller  {
     request.session.get("email").map {
       user => {
         var userModel = User.findByEmail(user)
-        Ok(html.bet.restricted(userModel, Game.findAll, Bet.getMyBets(userModel.id)))
+        Ok(html.bet.mainpage(userModel, Game.findAll, Bet.getMyBets(userModel.id)))
       }
     }.getOrElse {
       Ok(html.user.login(loginForm))
