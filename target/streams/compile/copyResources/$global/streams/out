@@ -1,0 +1,7 @@
+[0m[[0mdebug[0m] [0mCopy resource mappings: [0m
+[0m[[0mdebug[0m] [0m	(/home/pv/Documents/bolaoCopa/conf/application.conf,/home/pv/Documents/bolaoCopa/target/scala-2.11/classes/application.conf)[0m
+[0m[[0mdebug[0m] [0m	(/home/pv/Documents/bolaoCopa/conf/routes,/home/pv/Documents/bolaoCopa/target/scala-2.11/classes/routes)[0m
+[0m[[0mdebug[0m] [0m	(/home/pv/Documents/bolaoCopa/conf/evolutions,/home/pv/Documents/bolaoCopa/target/scala-2.11/classes/evolutions)[0m
+[0m[[0mdebug[0m] [0m	(/home/pv/Documents/bolaoCopa/conf/logback.xml,/home/pv/Documents/bolaoCopa/target/scala-2.11/classes/logback.xml)[0m
+[0m[[0mdebug[0m] [0m	(/home/pv/Documents/bolaoCopa/conf/messages,/home/pv/Documents/bolaoCopa/target/scala-2.11/classes/messages)[0m
+[0m[[0mdebug[0m] [0m	(/home/pv/Documents/bolaoCopa/conf/evolutions/1.sql,/home/pv/Documents/bolaoCopa/target/scala-2.11/classes/evolutions/1.sql)[0m
