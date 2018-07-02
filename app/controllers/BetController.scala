@@ -82,7 +82,7 @@ class BetController extends Controller with Secured {
 	def tryDeleteBet(teams: String) = IsAuthenticated { username => implicit request =>
 		var gameID = Game.findByTeams(teams).id
 		var userID = User.findByEmail(username).id
-		Bet.delete(new Bet(gameID, userID, ""))
+		Bet.delete(new Bet(userID, gameID, ""))
 		Redirect(routes.Restricted.index())
 	}
 
